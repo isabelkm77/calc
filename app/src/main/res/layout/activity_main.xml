@@ -84,7 +84,7 @@
                 android:layout_weight="1"
                 android:textSize="16sp"
                 android:text="/"
-                android:textColor="@color/colorPurple"
+                android:textColor="@color/colorPink"
                 android:stateListAnimator="@null"
                 android:background="@color/colorWhite">
             </Button>
@@ -134,7 +134,7 @@
                 android:layout_weight="1"
                 android:text="X"
                 android:textSize="16sp"
-                android:textColor="@color/colorPurple"
+                android:textColor="@color/colorPink"
                 android:stateListAnimator="@null"
                 android:background="@color/colorWhite">
             </Button>
@@ -184,7 +184,7 @@
                 android:layout_weight="1"
                 android:text="-"
                 android:textSize="16sp"
-                android:textColor="@color/colorPurple"
+                android:textColor="@color/colorPink"
                 android:stateListAnimator="@null"
                 android:background="@color/colorWhite">
             </Button>
@@ -234,7 +234,7 @@
                 android:layout_weight="1"
                 android:text="+"
                 android:textSize="16sp"
-                android:textColor="@color/colorPurple"
+                android:textColor="@color/colorPink"
                 android:stateListAnimator="@null"
                 android:background="@color/colorWhite">
             </Button>

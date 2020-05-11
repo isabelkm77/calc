@@ -2,14 +2,10 @@ package com.example.calc
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.widget.Button
 import android.widget.Toast
-import androidx.appcompat.widget.AppCompatButton
 import kotlinx.android.synthetic.main.activity_main.*
 import net.objecthunter.exp4j.ExpressionBuilder
 import java.lang.Exception
-import kotlin.reflect.typeOf
 
 class MainActivity : AppCompatActivity() {
 
@@ -17,46 +13,29 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val buttonMap = HashMap<String, Button>();
-        val operatorMap = HashMap<String, Button>();
+        initCalculator();
 
-        buttonMap.put("00" ,btn0);
-        buttonMap.put("1" , btn1);
-        buttonMap.put("2" , btn2);
-        buttonMap.put("3" , btn3);
-        buttonMap.put("4" , btn4);
-        buttonMap.put("5" , btn5);
-        buttonMap.put("6" , btn6);
-        buttonMap.put("7" , btn7);
-        buttonMap.put("8" , btn8);
-        buttonMap.put("9" , btn9);
-        buttonMap.put("0" , btn0);
-        buttonMap.put("." , btnDot);
+    }
 
-        operatorMap.put("+" , btnPlus);
-        operatorMap.put("/" , btnDivide);
-        operatorMap.put("-" , btnMinus);
-        operatorMap.put("*" , btnMultiply);
-        operatorMap.put("(" , btnLeftB);
-        operatorMap.put(")" , btnRightB);
+    fun initCalculator (){
+
+        val buttonMap = hashMapOf("00" to btn00, "0" to btn0, "1" to btn1, "2" to btn2, "3" to btn3, "4" to btn4, "5" to btn5, "6" to btn6, "7" to btn7, "8" to btn8, "9" to btn9, "." to btnDot)
+        val operatorMap = hashMapOf("+" to btnPlus, "/" to btnDivide, "-" to btnMinus, "*" to btnMultiply, "(" to btnLeftB, ")" to btnRightB)
 
         buttonMap.forEach { (key, value) ->  value.setOnClickListener {appendOnclick(true, key)}  }
         operatorMap.forEach { (key, value) ->  value.setOnClickListener {appendOnclick(false, key)}  }
 
         btnClear.setOnClickListener{clear()}
         btnEquals.setOnClickListener{ calculate()}
-
-
-
     }
-    fun appendOnclick(clear: Boolean,string: String){
+    fun appendOnclick(clear: Boolean, buttonValueInput: String){
         if (clear){
             tvOutput.text =""
-            tvInput.append(string)
+            tvInput.append(buttonValueInput)
         }
         else{
             tvInput.append(tvOutput.text)
-            tvInput.append(string)
+            tvInput.append(buttonValueInput)
             tvOutput.text=""
         }
     }
